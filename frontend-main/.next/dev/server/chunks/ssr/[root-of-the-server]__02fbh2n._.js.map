@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 13, "column": 0}, "map": {"version":3,"sources":["file:///C:/Projetos/fortigate-scripts/frontend-main/app/favicon.ico.mjs%20(structured%20image%20object)"],"sourcesContent":["import src from \"IMAGE\";\nexport default { src, width: 256, height: 256 }\n"],"names":["src","width","height"],"mappings":";;;;AAAA;;uCACe;IAAEA,KAAAA,mIAAG;IAAEC,OAAO;IAAKC,QAAQ;AAAI"}},
+    {"offset": {"line": 28, "column": 0}, "map": {"version":3,"sources":["file:///C:/Projetos/fortigate-scripts/frontend-main/app/page.tsx"],"sourcesContent":["// app/page.tsx\nimport 'bootstrap/dist/css/bootstrap.min.css';\nimport ZoneForm from './components/ZoneForm';\nimport AddressForm from './components/AddressForm';\n\nexport default function Home() {\n  return (\n    <main className=\"container mt-5\">\n      <div className=\"d-flex align-items-center mb-4\">\n        {/* Adicione a sua logo aqui */}\n        <h2>Automação de Scripts FortiGate</h2>\n      </div>\n      \n      <div className=\"row\">\n        <div className=\"col-lg-8 mx-auto\">\n           {/* Aqui você renderiza os geradores */}\n           <AddressForm />\n           <ZoneForm />\n        </div>\n      </div>\n    </main>\n  );\n}"],"names":["Home","className","AddressForm","ZoneForm"],"mappings":"AAAA,eAAe;;;;;;;;;;;;;;;;;;;;AAKA,SAASA;IACtB,qBACE,8OAAC;QAAKC,WAAU;;0BACd,8OAAC;gBAAIA,WAAU;0BAEb,cAAA,8OAAC;8BAAG;;;;;;;;;;;0BAGN,8OAAC;gBAAIA,WAAU;0BACb,cAAA,8OAAC;oBAAIA,WAAU;;sCAEZ,8OAACC;;;;;sCACD,8OAACC;;;;;;;;;;;;;;;;;;;;;;AAKZ"}}]
+}
