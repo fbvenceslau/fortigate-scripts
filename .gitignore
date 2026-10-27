@@ -6,8 +6,8 @@
 # =================( Builds e Compilações )=================
 **/dist/
 **/build/
-/.next/
-/out/
+**/.next/
+**/out/
 *.tsbuildinfo
 
 # =================( Variáveis de Ambiente )=================
