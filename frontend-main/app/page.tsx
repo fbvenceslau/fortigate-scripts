@@ -1,24 +1,17 @@
-// app/page.tsx
-import 'bootstrap/dist/css/bootstrap.min.css';
-import InterfaceGenerator from './components/InterfaceGenerator';
-import ObjectGenerator from './components/ObjectGenerator';
-import VpnGenerator from './components/VpnGenerator';
+import Generator from './components/Generator';
 
 export default function Home() {
   return (
-    <main className="container mt-5">
-      <div className="d-flex align-items-center mb-4">
-        {/* Adicione a sua logo aqui */}
-        <h2>Automação de Scripts FortiGate</h2>
-      </div>
-      
-      <div className="row">
-        <div className="col-lg-8 mx-auto">
-            <InterfaceGenerator />
-            <ObjectGenerator />
-            <VpnGenerator />
+    <>
+      <header className="app-header mb-4">
+        <div className="container py-3">
+          <h1 className="h4 mb-0">FortiGate Scripts</h1>
+          <p className="small mb-0 opacity-75">Gerador de CLI para FortiOS 7.x · revise sempre antes de aplicar em produção</p>
         </div>
-      </div>
-    </main>
+      </header>
+      <main className="container pb-5">
+        <Generator />
+      </main>
+    </>
   );
 }

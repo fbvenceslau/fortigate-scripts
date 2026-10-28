@@ -1,11 +1,13 @@
 {
   "name": "backend-main",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "API que gera scripts de CLI para FortiGate (FortiOS 7.x)",
+  "main": "src/server.ts",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsx src/server.ts",
+    "test": "tsx --test test/*.test.ts",
+    "typecheck": "tsc --noEmit"
   },
   "keywords": [],
   "author": "",

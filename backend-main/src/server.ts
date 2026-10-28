@@ -1,13 +1,15 @@
 import express from 'express';
 import cors from 'cors';
-// Importando o seu controller (Lembre-se da extensão .js!)
-import { generateScript } from './controllers/scriptController.js';
+import { generateScript, getTemplates } from './controllers/scriptController.ts';
+
+const PORT = Number(process.env.PORT ?? 3001);
+const ORIGINS = (process.env.CORS_ORIGIN ?? 'http://localhost:3000').split(',');
 
 const app = express();
-app.use(express.json());
-app.use(cors({ origin: 'http://localhost:3000' })); 
+app.use(express.json({ limit: '100kb' }));
+app.use(cors({ origin: ORIGINS }));
 
-// Conectando a rota /api/generate direto no seu controller
+app.get('/api/templates', getTemplates);
 app.post('/api/generate', generateScript);
 
-app.listen(3001, () => console.log('Backend Automator a correr na porta 3001'));
+app.listen(PORT, () => console.log(`Backend FortiGate Scripts na porta ${PORT}`));

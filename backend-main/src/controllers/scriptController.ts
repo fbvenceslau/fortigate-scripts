@@ -1,28 +1,24 @@
-import { type Request, type Response } from 'express';
-import { FortiGateCLI } from '../services/fortigateGenerator.ts';
+import type { Request, Response } from 'express';
+import { generate, getTemplate, listTemplates, ValidationError } from '../services/fortigate/index.ts';
+
+export const getTemplates = (_req: Request, res: Response) => {
+  res.json({ templates: listTemplates() });
+};
 
 export const generateScript = (req: Request, res: Response) => {
-  const { action, payload } = req.body;
-  const fgGenerator = new FortiGateCLI();
-  let scriptOutput = '';
+  const { action, payload } = req.body ?? {};
+
+  if (typeof action !== 'string' || !getTemplate(action)) {
+    return res.status(400).json({ error: 'Template não suportado.' });
+  }
 
   try {
-    switch (action) {
-      case 'CREATE_ADDRESS':
-        scriptOutput = FortiGateCLI.createAddress(payload);
-        break;
-      case 'CREATE_INTERFACE':
-        scriptOutput = FortiGateCLI.createInterface(payload);
-        break;
-      case 'CREATE_VPN_S2S':
-        scriptOutput = FortiGateCLI.createVpnSiteToSite(payload);
-        break;
-      default:
-        return res.status(400).json({ error: 'Ação não suportada pelo FortiGate.' });
-    }
-
-    return res.status(200).json({ script: scriptOutput });
+    return res.status(200).json(generate(action, payload));
   } catch (error) {
+    if (error instanceof ValidationError) {
+      return res.status(400).json({ error: 'Verifique os campos destacados.', fieldErrors: error.fieldErrors });
+    }
+    console.error(error);
     return res.status(500).json({ error: 'Erro ao gerar script.' });
   }
 };
