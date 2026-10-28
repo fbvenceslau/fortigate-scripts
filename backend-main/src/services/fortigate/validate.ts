@@ -141,7 +141,6 @@ export const normalizePayload = (template: TemplateDef, payload: unknown): Value
   return values;
 };
 
-// Leitores tipados para usar dentro dos templates.
 export const str = (v: Values, key: string): string => {
   const value = v[key];
   return typeof value === 'string' ? value : '';

@@ -17,7 +17,7 @@ function CodeBlock({ title, script }: { title?: string; script: string }) {
       <div className="d-flex align-items-center justify-content-between mb-1">
         <span className="small fw-semibold text-secondary">{title}</span>
         <button type="button" className="btn btn-sm btn-outline-secondary" onClick={copy}>
-          {copied ? 'Copiado ✓' : 'Copiar'}
+          {copied ? 'Copiado!' : 'Copiar'}
         </button>
       </div>
       <pre className="script-output rounded p-3 mb-0"><code>{script}</code></pre>

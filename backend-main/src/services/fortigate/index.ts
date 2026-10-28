@@ -8,7 +8,6 @@ import { vpnTemplates } from './modules/vpn.ts';
 import type { GenerateResult, TemplateDef, TemplateSummary } from './types.ts';
 import { normalizePayload } from './validate.ts';
 
-// Para adicionar um template novo: crie o TemplateDef num módulo e inclua o array aqui.
 const templates: TemplateDef[] = [
   ...vpnTemplates,
   ...policyTemplates,

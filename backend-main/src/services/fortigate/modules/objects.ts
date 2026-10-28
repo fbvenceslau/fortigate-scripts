@@ -165,7 +165,6 @@ export const objectTemplates: TemplateDef[] = [
   },
 ];
 
-// Reaproveitado por outros módulos.
 export const addressBlock = (cli: CliWriter, entries: Array<{ name: string; subnet: string; comment?: string }>): void => {
   cli.config('firewall address', () => {
     for (const entry of entries) {

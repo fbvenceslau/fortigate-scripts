@@ -1,6 +1,3 @@
-// Utilitários para montar blocos de CLI do FortiOS com indentação consistente
-// e para trabalhar com endereços IPv4.
-
 export const quote = (value: string): string =>
   `"${value.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
 
@@ -33,13 +30,11 @@ export class CliWriter {
     return this;
   }
 
-  // Valor literal (números, palavras-chave, IP + máscara).
   set(key: string, value: string | number): this {
     this.push(`set ${key} ${value}`);
     return this;
   }
 
-  // Um ou mais valores entre aspas (nomes de objetos, interfaces, textos).
   setq(key: string, ...values: string[]): this {
     this.push(`set ${key} ${quoteAll(values)}`);
     return this;
@@ -56,15 +51,12 @@ export class CliWriter {
   }
 
   toString(): string {
-    // Remove linhas em branco duplicadas ou nas pontas.
     return this.lines
       .join('\n')
       .replace(/\n{3,}/g, '\n\n')
       .trim();
   }
 }
-
-// ---------- IPv4 ----------
 
 const IPV4_RE = /^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/;
 
@@ -141,7 +133,6 @@ export const parseNet = (input: string, opts: ParseNetOptions = {}): IpNet | str
 
 export const netToString = (net: IpNet): string => `${net.ip} ${net.mask}`;
 
-// Converte o valor já normalizado ("ip mascara") de volta para IpNet.
 export const splitNet = (value: string): IpNet => {
   const [ip = '', mask = ''] = value.split(' ');
   return { ip, mask, prefix: maskToPrefix(mask) ?? 32 };

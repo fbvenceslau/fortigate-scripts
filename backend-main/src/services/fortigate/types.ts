@@ -1,7 +1,3 @@
-// Tipos compartilhados do catálogo de templates.
-// Cada template declara os campos do formulário (serializados para o frontend)
-// e a função que gera o script a partir dos valores já validados.
-
 export type FieldType =
   | 'text'      // linha única
   | 'password'  // linha única, mascarada no formulário

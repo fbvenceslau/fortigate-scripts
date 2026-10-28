@@ -25,7 +25,7 @@ export interface PolicySpec {
   };
 }
 
-// Bloco "edit 0" de firewall policy; usado também pelos templates de VPN e VIP.
+// Bloco "edit 0" de firewall policy.
 export const writePolicy = (cli: CliWriter, p: PolicySpec): void => {
   cli.edit(0, () => {
     cli.setq('name', p.name.slice(0, 35));
